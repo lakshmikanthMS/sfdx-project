@@ -1,0 +1,9 @@
+<template>
+    <lightning-input type="checkbox" label="show div" onchange={showDivHandle}></lightning-input>
+    <template if:true={showDiv}>
+        <div>checked</div>
+    </template>
+    <template if:false={showDiv}>
+        <div>unchecked</div>
+    </template>
+</template>

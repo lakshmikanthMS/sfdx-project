@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Calling child component public method from parent demo">
+        <lightning-input name="input1" label="Enter a color to check" onchange={handleInputChange}></lightning-input>
+        <lightning-button variant="brand" label="Check color" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        <c-check-box-child-component></c-check-box-child-component> 
+        <p>{result}</p>        
+    </lightning-card>
+</template>

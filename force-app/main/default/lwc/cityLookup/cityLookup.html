@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Account" icon-name="standard:account">
+        <div class="slds-box slds-m-horizontal_large">
+            <lightning-layout>
+                <lightning-layout-item size="6" padding="around-small">
+                    <lightning-card title="Create Account" icon-name="standard:people">
+                        <template if:true={loaded}>
+                            <lightning-input label="Name" name="Account Name" value={accountName}
+                                onchange={handleChange}></lightning-input>
+                            <lightning-input type="phone" label="Phone" name="Account Phone" value={accountPhone}
+                                onchange={handleChange}>
+                            </lightning-input>
+                            <lightning-input label="Postal Code" name="Postal Code" value={postalCode}
+                                onchange={handleChange} required></lightning-input>
+                            <lightning-input label="City" name="Account City" readonly value={accountCity}>
+                            </lightning-input>
+                        </template>
+                        <template if:false={loaded}>
+                            <lightning-spinner class="spins" size="small"></lightning-spinner>
+                        </template>
+                        <div class="slds-m-top_small slds-m-bottom_medium">
+                            <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave}
+                                class="slds-align_absolute-center"></lightning-button>
+                        </div>
+                    </lightning-card>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-small">
+                    <lightning-card title="Account Created" icon-name="standard:avatar">
+                        <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                            <lightning-output-field field-name="Name">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Phone">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Postal_Code__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="City__c">
+                            </lightning-output-field>
+                        </lightning-record-view-form>
+                    </lightning-card>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>
