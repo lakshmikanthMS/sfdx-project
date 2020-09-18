@@ -86,7 +86,7 @@ export default class CityLookup extends LightningElement {
             this.dispatchEvent(
                 new ShowToastEvent({
                     title : 'Success',
-                    message : 'Account Create',
+                    message : 'Account Created',
                     variant : 'success'
                 })
             );
