@@ -4,6 +4,7 @@ public with sharing class cityLookup {
     public static responseWrapper getCityCallout(string pincode){
         responseWrapper respWrapper = new responseWrapper();
         string resp;
+        //endpoint can be used based on the requirement. there are many free and paid API are available in the market.
         string endpoint ='http://ziptasticapi.com/';
         endpoint = endpoint + pincode;
         HttpRequest req = new HttpRequest();
@@ -31,6 +32,7 @@ public with sharing class cityLookup {
         return respWrapper;
     }
 
+    //wrapper class to return the response data, callout status and error
     public class responseWrapper{
         @AuraEnabled
         public string data;

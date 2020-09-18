@@ -2,6 +2,7 @@
     <lightning-card title="Account" icon-name="standard:account">
         <div class="slds-box slds-m-horizontal_large">
             <lightning-layout>
+                <!--layout item to hold fields and save button for Account Creation-->
                 <lightning-layout-item size="6" padding="around-small">
                     <lightning-card title="Create Account" icon-name="standard:people">
                         <template if:true={loaded}>
@@ -15,8 +16,9 @@
                             <lightning-input label="City" name="Account City" readonly value={accountCity}>
                             </lightning-input>
                         </template>
+                        <!--Markup to display spinner when callout is in progress-->
                         <template if:false={loaded}>
-                            <lightning-spinner class="spins" size="small"></lightning-spinner>
+                            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
                         </template>
                         <div class="slds-m-top_small slds-m-bottom_medium">
                             <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave}
@@ -24,6 +26,7 @@
                         </div>
                     </lightning-card>
                 </lightning-layout-item>
+                <!--layout item to dispaly Account created-->
                 <lightning-layout-item size="6" padding="around-small">
                     <lightning-card title="Account Created" icon-name="standard:avatar">
                         <lightning-record-view-form record-id={accountId} object-api-name="Account">
