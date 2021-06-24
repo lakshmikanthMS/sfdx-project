@@ -7,7 +7,7 @@ export default class CopyToClipBoard extends NavigationMixin(LightningElement) {
     recordPageUrl;
     copyIcon='utility:copy_to_clipboard';
     copy='Copy record URL to clipboard';
-    _title = 'Record Url has been copied to clipboard';
+    title = 'Record Url has been copied to clipboard';
     variant = 'success';
     //message = 'Record Url has been copied to clipboard';
 
@@ -19,7 +19,7 @@ export default class CopyToClipBoard extends NavigationMixin(LightningElement) {
 
     showToast(){
         const evt = new ShowToastEvent({
-            title: this._title,
+            title: this.title,
             message: this.recordPageUrl,
             variant: this.variant,
         });
@@ -45,7 +45,6 @@ export default class CopyToClipBoard extends NavigationMixin(LightningElement) {
         urlCopy.select();
         document.execCommand("copy");
         document.body.removeChild(urlCopy);
-        //var orignalLabel = event.getSource().get("v.label");
         this.copyIcon='utility:check';
         this.copy='Copied';
         setTimeout(()=>{
