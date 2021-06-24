@@ -12,7 +12,9 @@ export default class CopyToClipBoard extends NavigationMixin(LightningElement) {
     //message = 'Record Url has been copied to clipboard';
 
     async handleClick(event){
-        await this.generateURLforLink();
+        if(this.recordPageUrl == undefined || this.recordPageUrl == null){
+            await this.generateURLforLink();
+        }
         this.copyToClipBoard(event,this.recordPageUrl);
         this.showToast();        
     }
